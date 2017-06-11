@@ -2,7 +2,7 @@ package com.java.implementation.datastructure.linkedlist;
 
 import java.util.Scanner;
 
-public class LinkedListCreation {
+public class DoublyLinkedListCreation {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -14,20 +14,21 @@ public class LinkedListCreation {
 			for (int i = 0; i < linkedListSize; i++) {
 				nodeData[i] = scanner.next();
 			}
-			LinkedListNode prevNode = null;
-			LinkedListNode linkedList = null;
+			DoubleLinkedListNode prevNode = null;
+			DoubleLinkedListNode linkedList = null;
 			for (int i = 0; i < linkedListSize; i++) {
 				if (i == 0) {
-					prevNode = createNode(nodeData[i]);
+					prevNode = createNode(null, nodeData[i]);
 					linkedList = prevNode;
 				} else {
-					LinkedListNode node = createNode(nodeData[i]);
+					DoubleLinkedListNode node = createNode(prevNode, nodeData[i]);
 					prevNode.setNextNode(node);
 					prevNode = node;
 				}
 			}
 			while (true) {
-				System.out.println(linkedList.getData() + " ");
+				System.out.println(
+						linkedList.getPreviousNode() + " " + linkedList.getData() + " " + linkedList.getNextNode());
 				linkedList = linkedList.getNextNode();
 				if (linkedList == null) {
 					break;
@@ -40,8 +41,9 @@ public class LinkedListCreation {
 		}
 	}
 
-	public static LinkedListNode createNode(String data) {
-		LinkedListNode node = new LinkedListNode();
+	public static DoubleLinkedListNode createNode(DoubleLinkedListNode previousNode, String data) {
+		DoubleLinkedListNode node = new DoubleLinkedListNode();
+		node.setPreviousNode(previousNode);
 		node.setData(data);
 		node.setNextNode(null);
 		return node;

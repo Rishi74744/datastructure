@@ -1,9 +1,9 @@
 package com.java.implementation.datastructure.linkedlist;
 
-public class Node {
+public class LinkedListNode {
 
 	private Object data;
-	private Node nextNode;
+	private LinkedListNode nextNode;
 
 	public Object getData() {
 		return data;
@@ -13,11 +13,11 @@ public class Node {
 		this.data = data;
 	}
 
-	public Node getNextNode() {
+	public LinkedListNode getNextNode() {
 		return nextNode;
 	}
 
-	public void setNextNode(Node nextNode) {
+	public void setNextNode(LinkedListNode nextNode) {
 		this.nextNode = nextNode;
 	}
 

@@ -10,18 +10,18 @@ public class LinkedListSearching {
 			System.out.println("Enter the size of linked list : ");
 			int linkedListSize = scanner.nextInt();
 			String nodeData[] = new String[linkedListSize];
-			System.out.println("Insert data to create linked list");
+			System.out.println("Enter total nodes");
 			for (int i = 0; i < linkedListSize; i++) {
 				nodeData[i] = scanner.next();
 			}
-			Node prevNode = null;
-			Node linkedList = null;
+			LinkedListNode prevNode = null;
+			LinkedListNode linkedList = null;
 			for (int i = 0; i < linkedListSize; i++) {
 				if (i == 0) {
 					prevNode = createNode(nodeData[i]);
 					linkedList = prevNode;
 				} else {
-					Node node = createNode(nodeData[i]);
+					LinkedListNode node = createNode(nodeData[i]);
 					prevNode.setNextNode(node);
 					prevNode = node;
 				}
@@ -54,8 +54,8 @@ public class LinkedListSearching {
 		}
 	}
 
-	public static Node createNode(String data) {
-		Node node = new Node();
+	public static LinkedListNode createNode(String data) {
+		LinkedListNode node = new LinkedListNode();
 		node.setData(data);
 		node.setNextNode(null);
 		return node;

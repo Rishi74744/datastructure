@@ -14,14 +14,14 @@ public class LinkedListDeletion {
 			for (int i = 0; i < linkedListSize; i++) {
 				nodeData[i] = scanner.next();
 			}
-			Node prevNode = null;
-			Node linkedList = null;
+			LinkedListNode prevNode = null;
+			LinkedListNode linkedList = null;
 			for (int i = 0; i < linkedListSize; i++) {
 				if (i == 0) {
 					prevNode = createNode(nodeData[i]);
 					linkedList = prevNode;
 				} else {
-					Node node = createNode(nodeData[i]);
+					LinkedListNode node = createNode(nodeData[i]);
 					prevNode.setNextNode(node);
 					prevNode = node;
 				}
@@ -30,7 +30,7 @@ public class LinkedListDeletion {
 			Object searchData = scanner.next();
 			int index = 1;
 			boolean dataExists = false;
-			Node fisrtNode = linkedList;
+			LinkedListNode fisrtNode = linkedList;
 			while (true) {
 				Object linkListData = linkedList.getData();
 				if (linkListData.equals(searchData)) {
@@ -68,8 +68,8 @@ public class LinkedListDeletion {
 		}
 	}
 
-	public static Node createNode(String data) {
-		Node node = new Node();
+	public static LinkedListNode createNode(String data) {
+		LinkedListNode node = new LinkedListNode();
 		node.setData(data);
 		node.setNextNode(null);
 		return node;
