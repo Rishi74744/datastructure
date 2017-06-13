@@ -2,7 +2,7 @@ package com.java.implementation.datastructure.stack;
 
 import java.util.Scanner;
 
-public class StackCreation {
+public class StackPop {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -19,9 +19,9 @@ public class StackCreation {
 				currentTopOfStack = push(currentTopOfStack, stackData[i]);
 			}
 			while (true) {
-				System.out.println(currentTopOfStack.getData() + " " + currentTopOfStack.getTopOfStack());
+				System.out.println(pop(currentTopOfStack));
 				currentTopOfStack = currentTopOfStack.getTopOfStack();
-				if(currentTopOfStack == null){
+				if (currentTopOfStack == null) {
 					break;
 				}
 			}
@@ -37,6 +37,10 @@ public class StackCreation {
 		stack.setData(data);
 		stack.setTopOfStack(prevStack);
 		return stack;
+	}
+
+	public static String pop(Stack topOfStack) {
+		return topOfStack.getData().toString();
 	}
 
 }
