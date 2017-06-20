@@ -2,7 +2,7 @@ package com.java.implementation.datastructure.queue;
 
 import java.util.Scanner;
 
-public class QueueCreation {
+public class QueueDeletion {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -28,10 +28,21 @@ public class QueueCreation {
 					q = nextElement;
 				}
 			}
+			System.out.println("Enter the data for deletion from queue: ");
+			String element = scanner.next();
+			boolean isElementFound = false;
 			while (count < queueSize) {
-				System.out.println(front.getData() + "  " + front.getNext());
+				if (front.getData().equals(element)) {
+					isElementFound = true;
+					break;
+				}
 				front = front.getNext();
 				count++;
+			}
+			if (isElementFound) {
+				System.out.println("Data found at : " + count);
+			} else {
+				System.out.println("No data found!");
 			}
 		} catch (Exception e) {
 			System.err.println(e);
